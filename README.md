@@ -35,8 +35,18 @@
 
 ### :question: RESTful한 API를 설계했나요? 어떤 부분이 그런가요? 어떤 부분이 그렇지 않나요?
 RESTful : REST 아키텍처의 제약조건을 준수하는 애플리케이션
+RESTful 하지 못한 경우
+- CRUD기능을 모두 POST로만 처리
+- route에 ID외의 정보가 들어가는 경우
+ 
+**route와 request방식이 중복되어 오류가 발생하거나, 민감한 정보가 route에 담기지 않도록 설계**
 
 ### :question: 적절한 관심사 분리를 적용하였나요? (Controller, Repository, Service)
+|||
+|---|---|
+|Controller|Client와 직접 마주하는 곳으로 요청을 받아 Repository에 전달 후 다시 Client에 전달|
+|Repository|Entity에 의해 생성된 DB에 접근하는 Method를 사용하기 위한 인터페이스<br>주로 findAll(),findById()를 활용|
+|Service|Controller에서 Repository에 전달하거나 Repository에서 Client에 전달되는 과정에서 필요한 가공을 수행<br>예) PUT을 통해 수정내용을 받으면 @Transactinal을 통해 수정|
 
 ### :question: 작성한 코드에서 빈(Bean)을 모두 찾아보세요!
     Bean : Java Bean Convention에 따르는 데이터를 표현하기 위한 클래스
@@ -48,8 +58,8 @@ RESTful : REST 아키텍처의 제약조건을 준수하는 애플리케이션
                        Seriallizable 인터페이스를 구현한다.
                        Bean클래스는 패키징 되어야 한다.
 ***Project내 Bean*** : Dto 폴더 내 3가지 Dto, Post, Timestampe
-예시(Post)
 ```java
+[예시-Post]
 @Getter
 @NoArgsConstructor
 @Entity

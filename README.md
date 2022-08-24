@@ -97,3 +97,30 @@ public class Post extends Timestamped{
     }
 }
 ```
+
+# Week4_Spring
+
+**Week3**에 **JWT** 기반 로그인 시스템 및 댓글 시스템 구현하기
+
+### :question: 미완료
+- Reponse에 서로다른 형태의 리스트 출력하기
+```java
+public class Response <T> {
+    boolean checkSuccess;
+    T data;
+    ErrorList errorList;
+
+    public Response(boolean checkSuccess, T data,ErrorList errorList) {
+        this.checkSuccess = checkSuccess;
+        this.data = data;
+        this.errorList =errorList;
+    }
+
+
+}
+```
+T data 형태로 지정한 부분에 Comment와Post 같이 넣기
+
+- 서버구동
+
+- 오류 통일(일부는 Exception, 일부는 Response로 처리)

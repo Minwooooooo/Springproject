@@ -1,0 +1,49 @@
+POST /auth/login HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "nickname":"admin",
+  "password":"admin"
+}
+###
+GET /auth/test HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+###
+POST /auth/signup HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "nickname":"test2",
+  "password":"asdf",
+  "passwordConfirm":"asdf"
+}
+
+###
+POST /api/posts HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+"title":"제목",
+"content" : "내용",
+"name" : "이름"
+
+}
+
+###
+POST /api/auth/comment HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "postId":"1",
+  "content" : "내용"
+}
+
+###
+GET /api/comment/1 HTTP/1.1
+Host: localhost:8080
